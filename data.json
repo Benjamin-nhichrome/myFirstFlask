@@ -1,0 +1,24 @@
+{
+    "personen": [
+      {
+        "naam": "Alice",
+        "leeftijd": 25,
+        "stad": "Amsterdam",
+        "telefoonnummer": "0684563727"
+      },
+      {
+        "naam": "Bob",
+        "leeftijd": 32,
+        "stad": "Rotterdam",
+        "telefoonnummer": "06856788474"
+      },
+      {
+        "naam": "Charlie",
+        "leeftijd": 42,
+        "stad": "Utrecht",
+        "telefoonnummer": "06812349568"
+      }
+    ]
+  }
+
+
