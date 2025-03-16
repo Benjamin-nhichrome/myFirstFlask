@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Mijn Flask-project</title>
+    <title>Flask Opdracht</title>
 </head>
 <body>
-    <h1>Welkom Benjamin bij mijn Flask-project!</h1>
-    <p>Dit is een basisstructuur voor een Flask-project.</p>
+    <h1>Vul je naam in:</h1>
+    <form action="/templates/greet.html" method="POST">
+        <input type="text" name="name" required>
+        <input type="submit" value="Verzenden">
+    </form>
 </body>
 </html>
