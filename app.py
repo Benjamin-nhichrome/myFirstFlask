@@ -1,18 +1,29 @@
 from flask import Flask, render_template, request
-import datetime
+import requests
 
 app = Flask(__name__)
 
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/')
 def index():
-    if request.method == 'POST':
-        date_string = request.form['date']
-        date_object = datetime.datetime.strptime(date_string, "%Y-%m-%d")
-        day_as_number = date_object.weekday()
-        days_of_week_array = ['Maandag', 'Dinsdag', 'Woensdag', 'Donderdag', 'Vrijdag', 'Zaterdag', 'Zondag']
-        day_of_week = days_of_week_array[day_as_number] 
-        return render_template('result.html', day_of_week=day_of_week)
     return render_template('index.html')
+
+@app.route('/forecast', methods=['POST'])
+def forecast():
+    country = request.form.get('country')
+    city = request.form.get('city')
+
+    api_key = '11fd0ff64ce04668aab121328251803'  # Vervang dit met je eigen WeatherAPI-sleutel
+
+    url = f'http://api.weatherapi.com/v1/forecast.json?key={api_key}&q={city},{country}&days=3'
+    print(f"API URL: {url}")
+
+
+    response = requests.get(url)
+    data = response.json()
+
+    forecast_days = data['forecast']['forecastday']
+
+    return render_template('forecast.html', country=country, city=city, forecast_days=forecast_days)
 
 if __name__ == '__main__':
     app.run(debug=True)

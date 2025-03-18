@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Dag van de week</title>
+    <title>Weersvoorspelling</title>
 </head>
 <body>
-    <h1>Vind de dag van de week</h1>
-    <form method="POST" action="/">
-        <label for="date">Voer een datum in:</label>
-        <input type="date" id="date" name="date" required>
-        <br><br>
-        <input type="submit" value="Vind dag van de week">
+    <h1>Weersvoorspelling</h1>
+    <form action="/forecast" method="POST">
+        <label for="country">Selecteer een land:</label>
+        <input type="text" id="country" name="country" required><br><br>
+        <label for="city">Selecteer een stad:</label>
+        <input type="text" id="city" name="city" required><br><br>
+        <input type="submit" value="Zoek weersvoorspelling">
     </form>
 </body>
 </html>
